@@ -1,0 +1,249 @@
+/* =================================================================
+   Front Door / Ușa din Față — forms.css
+   Modale (mentor/gazdă) · formulare · pagina de donații · formular 230
+   Depinde de variabilele temă din style.css
+   ================================================================= */
+
+/* ===============================================================
+   1. MODALE
+   =============================================================== */
+.modal-overlay{
+  position:fixed;inset:0;z-index:100;
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:40px 20px;overflow-y:auto;
+  background:rgba(11,14,18,.62);
+  backdrop-filter:blur(4px);
+  opacity:0;transition:opacity .22s ease;
+}
+.modal-overlay[hidden]{display:none}
+.modal-overlay.is-open{opacity:1}
+
+.modal{
+  position:relative;width:100%;max-width:620px;margin:auto 0;
+  background:var(--bg);border:1px solid var(--line);
+  box-shadow:0 30px 80px -30px rgba(0,0,0,.6);
+  padding:40px;
+  transform:translateY(16px) scale(.985);
+  transition:transform .26s cubic-bezier(.2,.7,.2,1);
+}
+.modal-overlay.is-open .modal{transform:none}
+
+.modal::before{
+  content:"";position:absolute;top:0;left:0;width:80px;height:8px;
+  background:var(--blue);transform:skewX(-45deg) translateX(-18px);
+}
+.modal-close{
+  position:absolute;top:14px;right:16px;
+  width:40px;height:40px;border:none;background:transparent;
+  font-size:30px;line-height:1;color:var(--muted);cursor:pointer;
+  transition:color .15s ease, transform .15s ease;
+}
+.modal-close:hover{color:var(--accent-text);transform:rotate(90deg)}
+.modal-title{font-size:clamp(24px,3.4vw,34px);margin-bottom:10px}
+.modal-intro{color:var(--muted);font-size:15px;margin-bottom:26px}
+
+@media(max-width:560px){
+  .modal{padding:30px 22px}
+  .modal-overlay{padding:0}
+  .modal{min-height:100%;border:none;margin:0}
+}
+
+/* ===============================================================
+   2. FORMULARE (comune)
+   =============================================================== */
+.fd-form{display:flex;flex-direction:column;gap:18px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field-row:has(.field:nth-child(3)){grid-template-columns:1fr 1fr 1fr}
+@media(max-width:520px){.field-row{grid-template-columns:1fr}}
+
+.field label{font-size:13px;font-weight:700;letter-spacing:.02em}
+.field input,
+.field select,
+.field textarea{
+  width:100%;padding:12px 14px;font-size:15px;font-family:inherit;
+  color:var(--text);background:var(--surface);
+  border:1.5px solid var(--line);transition:border-color .16s ease, background .16s ease;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{outline:none;border-color:var(--blue);background:var(--bg)}
+.field textarea{resize:vertical;min-height:90px}
+.field-hint{font-size:12.5px;color:var(--muted)}
+
+/* input file stilizat */
+.field input[type="file"]{
+  padding:10px 14px;cursor:pointer;background:var(--bg);
+  border:1.5px dashed var(--line);
+}
+.field input[type="file"]:hover{border-color:var(--blue)}
+
+/* bifă consimțământ GDPR */
+.consent{
+  display:flex;align-items:flex-start;gap:11px;
+  font-size:13.5px;color:var(--muted);line-height:1.5;
+  padding:14px;background:var(--surface);border:1px solid var(--line);
+}
+.consent input[type="checkbox"]{
+  flex:0 0 18px;width:18px;height:18px;margin-top:1px;
+  accent-color:var(--blue);cursor:pointer;
+}
+.consent a{color:var(--accent-text);text-decoration:underline}
+
+/* linie cu checkbox simplă (opțiuni) */
+.check-line{
+  display:flex;align-items:flex-start;gap:11px;font-size:14.5px;line-height:1.5;
+}
+.check-line input[type="checkbox"]{
+  flex:0 0 18px;width:18px;height:18px;margin-top:2px;accent-color:var(--blue);cursor:pointer;
+}
+
+/* fieldset */
+.fs{border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;gap:16px}
+.fs legend{
+  font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-text);padding:0 10px;
+}
+
+/* mesaj stare (succes/eroare) — folosit de JS */
+.form-status{font-size:14px;padding:12px 14px;border:1px solid var(--line);display:none}
+.form-status.is-error{display:block;border-color:#b4242a;color:#b4242a;background:rgba(180,36,42,.08)}
+.form-status.is-ok{display:block;border-color:var(--blue);color:var(--accent-text);background:var(--blue-soft)}
+
+/* ===============================================================
+   3. PAGINA DONAȚII — selector + panouri
+   =============================================================== */
+.donate-options{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+}
+@media(max-width:900px){.donate-options{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.donate-options{grid-template-columns:1fr}}
+
+.donate-tab{
+  text-align:left;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);
+  padding:22px 20px;display:flex;flex-direction:column;gap:6px;
+  position:relative;overflow:hidden;
+  transition:transform .18s ease, border-color .18s ease, background .18s ease;
+}
+.donate-tab:hover{transform:translateY(-4px);border-color:var(--blue)}
+.donate-tab-num{
+  font-family:'Archivo Black',sans-serif;font-size:13px;letter-spacing:.1em;
+  color:var(--accent-text);opacity:.7;
+}
+.donate-tab-title{font-weight:700;font-size:17px}
+.donate-tab-sub{font-size:13px;color:var(--muted)}
+.donate-tab.is-active{
+  background:var(--blue);border-color:var(--blue);color:#fff;
+}
+.donate-tab.is-active .donate-tab-num,
+.donate-tab.is-active .donate-tab-sub{color:#fff;opacity:.85}
+.donate-tab.is-active::after{
+  content:"";position:absolute;bottom:0;left:0;width:100%;height:5px;
+  background:var(--ink);
+}
+
+/* panouri */
+.donate-panels{padding-top:0}
+.donate-panel{display:none;animation:fadeUp .4s ease both}
+.donate-panel.is-active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.panel-head{margin-bottom:34px}
+
+/* listă microproiecte */
+.project-list{display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
+.project{display:block;cursor:pointer}
+.project input{position:absolute;opacity:0;pointer-events:none}
+.project-box{
+  display:block;padding:20px 22px;
+  background:var(--surface);border:1.5px solid var(--line);
+  transition:border-color .18s ease, background .18s ease;
+}
+.project:hover .project-box{border-color:var(--blue)}
+.project input:checked + .project-box{
+  border-color:var(--blue);background:var(--blue-soft);
+  box-shadow:inset 4px 0 0 var(--blue);
+}
+.project-title{display:block;font-weight:700;font-size:17px;margin-bottom:4px}
+.project-desc{display:block;font-size:14px;color:var(--muted);margin-bottom:12px}
+.project-meta{display:flex;justify-content:space-between;font-size:13px;font-weight:700;gap:12px}
+.project-goal{color:var(--accent-text)}
+.project-raised{color:var(--muted)}
+.project-bar{display:block;height:7px;background:var(--line);margin-top:10px;overflow:hidden}
+.project-bar span{display:block;height:100%;background:var(--blue);transition:width .6s ease}
+
+/* alegere sumă */
+.amount-block{margin-bottom:28px}
+.amount-label{
+  font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent-text);margin-bottom:14px;
+}
+.amount-grid{display:flex;flex-wrap:wrap;gap:12px}
+.amount-btn{
+  padding:14px 24px;font-size:16px;font-weight:700;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);color:var(--text);
+  transition:transform .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
+}
+.amount-btn:hover{transform:translateY(-2px);border-color:var(--blue)}
+.amount-btn.is-active{background:var(--blue);border-color:var(--blue);color:#fff}
+.amount-custom{
+  display:flex;align-items:center;gap:8px;
+  border:1.5px solid var(--line);padding:0 16px 0 0;background:var(--surface);
+}
+.amount-custom input{
+  width:130px;padding:14px 16px;font-size:16px;font-weight:700;font-family:inherit;
+  border:none;background:transparent;color:var(--text);
+}
+.amount-custom input:focus{outline:none}
+.amount-custom span{font-size:14px;color:var(--muted);white-space:nowrap}
+
+.btn-donate{font-size:17px;padding:17px 28px}
+.donate-note{font-size:13px;color:var(--muted);margin-top:14px;text-align:center}
+
+/* tag vizibil pentru placeholder-uri de conectat */
+.placeholder-tag{
+  display:inline-block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11px;letter-spacing:.04em;
+  background:var(--blue-soft);color:var(--accent-text);
+  padding:2px 7px;border:1px solid var(--line);
+}
+
+/* ===============================================================
+   4. FORMULAR 230
+   =============================================================== */
+.form230{gap:24px;max-width:760px}
+.form230-intro{
+  background:var(--blue-soft);border:1px solid var(--line);
+  padding:22px 26px;margin-bottom:30px;
+}
+.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:12px}
+.steps li{
+  counter-increment:s;position:relative;padding-left:42px;font-size:15px;line-height:1.5;
+}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:-2px;
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  font-family:'Archivo Black',sans-serif;font-size:13px;
+  background:var(--blue);color:#fff;
+}
+.steps .muted{color:var(--muted)}
+
+.form230-actions{display:flex;gap:14px;flex-wrap:wrap}
+.form230-actions .btn{flex:1;min-width:200px}
+
+/* ===============================================================
+   5. ANIMAȚIE CARD ACTION (Implică-te) — accent diagonal la hover
+   =============================================================== */
+.card-action::before{
+  content:"";position:absolute;left:-60%;top:0;width:40%;height:100%;
+  background:linear-gradient(120deg,transparent,color-mix(in srgb,var(--blue) 14%,transparent),transparent);
+  transform:skewX(-18deg);transition:left .5s ease;pointer-events:none;
+}
+.card-action:hover::before{left:130%}
+
+@media (prefers-reduced-motion: reduce){
+  .donate-panel{animation:none}
+  .card-action::before{display:none}
+  .modal,.modal-overlay{transition:none}
+  .amount-btn:hover,.donate-tab:hover{transform:none}
+}
