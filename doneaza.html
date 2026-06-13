@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donează — Front Door / Ușa din Față</title>
+<meta name="description" content="Susține Front Door / Ușa din Față: alege un microproiect, redirecționează 3,5% din impozit, sau donează o singură dată ori lunar.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="logo-light" src="assets/logo-mono-blue.png" alt="Front Door">
+      <img class="logo-dark" src="assets/logo-mono-white.png" alt="Front Door">
+      <span class="brand-name">FRONT DOOR<small>UȘA DIN FAȚĂ</small></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#program">Program</a>
+      <a href="index.html#piloni">Piloni</a>
+      <a href="index.html#transparenta">Transparență</a>
+      <a href="index.html#implicare">Implică-te</a>
+      <a href="despre.html">Cine suntem</a>
+      <a href="doneaza.html" class="don active">Donează</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Deschide meniul" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO PAGINĂ ============ -->
+<div class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow reveal">Donează</p>
+    <h1 class="display page-title reveal">Susține o ușă<br><em>care se deschide pentru cineva.</em></h1>
+    <p class="lead reveal">Alege felul în care vrei să ajuți. Fiecare leu e direcționat și raportat transparent — vezi exact unde ajunge.</p>
+  </div>
+</div>
+
+<!-- ============ CELE 4 OPȚIUNI (selector) ============ -->
+<section id="optiuni">
+  <div class="wrap">
+    <div class="donate-options">
+      <button class="donate-tab is-active" data-panel="panel-microproiect">
+        <span class="donate-tab-num">01</span>
+        <span class="donate-tab-title">Susține un microproiect</span>
+        <span class="donate-tab-sub">Alegi proiectul și suma</span>
+      </button>
+      <button class="donate-tab" data-panel="panel-230">
+        <span class="donate-tab-num">02</span>
+        <span class="donate-tab-title">Redirecționează 3,5%</span>
+        <span class="donate-tab-sub">Formularul 230 — nu te costă nimic</span>
+      </button>
+      <button class="donate-tab" data-panel="panel-unica">
+        <span class="donate-tab-num">03</span>
+        <span class="donate-tab-title">Donație unică</span>
+        <span class="donate-tab-sub">O singură dată, prin card</span>
+      </button>
+      <button class="donate-tab" data-panel="panel-recurenta">
+        <span class="donate-tab-num">04</span>
+        <span class="donate-tab-title">Donație lunară</span>
+        <span class="donate-tab-sub">Sprijin constant, te dezabonezi oricând</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANOURI ============ -->
+<section class="donate-panels">
+  <div class="wrap">
+
+    <!-- ---------- 01: MICROPROIECT ---------- -->
+    <div class="donate-panel is-active" id="panel-microproiect">
+      <div class="panel-head">
+        <h2 class="display sec">Susține un microproiect</h2>
+        <p class="sec-sub">Alege o cauză concretă. Urmărești apoi pas cu pas cum donația ta se transformă în rezultat.</p>
+      </div>
+
+      <div class="project-list">
+        <label class="project">
+          <input type="radio" name="proiect" value="curs-romana" checked>
+          <span class="project-box">
+            <span class="project-title">Cursuri de română pentru refugiați</span>
+            <span class="project-desc">Materiale, sală și sprijin pentru voluntari, un semestru.</span>
+            <span class="project-meta"><span class="project-goal">Obiectiv: 4.000 lei</span><span class="project-raised">Strâns: — lei</span></span>
+            <span class="project-bar"><span style="width:0%"></span></span>
+          </span>
+        </label>
+
+        <label class="project">
+          <input type="radio" name="proiect" value="open-stage">
+          <span class="project-box">
+            <span class="project-title">Scenă pentru artiști emergenți</span>
+            <span class="project-desc">Sonorizare, lumini și spațiu pentru o stagiune de open stage.</span>
+            <span class="project-meta"><span class="project-goal">Obiectiv: 6.000 lei</span><span class="project-raised">Strâns: — lei</span></span>
+            <span class="project-bar"><span style="width:0%"></span></span>
+          </span>
+        </label>
+
+        <label class="project">
+          <input type="radio" name="proiect" value="microproiect-social">
+          <span class="project-box">
+            <span class="project-title">Microproiecte sociale în comunități</span>
+            <span class="project-desc">Sprijin direct, documentat video și raportat public.</span>
+            <span class="project-meta"><span class="project-goal">Obiectiv: 10.000 lei</span><span class="project-raised">Strâns: — lei</span></span>
+            <span class="project-bar"><span style="width:0%"></span></span>
+          </span>
+        </label>
+
+        <label class="project">
+          <input type="radio" name="proiect" value="unde-e-nevoie">
+          <span class="project-box">
+            <span class="project-title">Acolo unde e cea mai mare nevoie</span>
+            <span class="project-desc">Lași asociația să direcționeze donația către prioritatea momentului.</span>
+          </span>
+        </label>
+      </div>
+
+      <div class="amount-block">
+        <p class="amount-label">Alege suma</p>
+        <div class="amount-grid" data-amount-group="micro">
+          <button type="button" class="amount-btn" data-amount="50">50 lei</button>
+          <button type="button" class="amount-btn is-active" data-amount="100">100 lei</button>
+          <button type="button" class="amount-btn" data-amount="250">250 lei</button>
+          <button type="button" class="amount-btn" data-amount="500">500 lei</button>
+          <div class="amount-custom">
+            <input type="number" min="5" placeholder="altă sumă" data-amount-custom="micro" aria-label="Altă sumă">
+            <span>lei</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-solid btn-block btn-donate" data-donate-type="microproiect">Donează <span data-amount-display="micro">100</span> lei</button>
+      <p class="donate-note">Plata se face securizat, prin procesatorul nostru de plăți. <span class="placeholder-tag">PLACEHOLDER_PROCESATOR_PLATI</span></p>
+    </div>
+
+    <!-- ---------- 02: FORMULAR 230 ---------- -->
+    <div class="donate-panel" id="panel-230">
+      <div class="panel-head">
+        <h2 class="display sec">Redirecționează 3,5% din impozit</h2>
+        <p class="sec-sub">Dacai ai venituri din salarii, poți direcționa 3,5% din impozitul deja plătit statului către noi. Nu te costă absolut nimic — sunt bani pe care altfel îi reține statul.</p>
+      </div>
+
+      <div class="form230-intro reveal">
+        <ol class="steps">
+          <li><b>Completează</b> datele de mai jos.</li>
+          <li><b>Generează</b> formularul 230, deja pre-completat cu datele asociației și ale tale.</li>
+          <li><b>Descarcă-l și semnează-l</b>, apoi depune-l la ANAF — <span class="muted">sau</span> trimite-ni-l nouă și îl depunem noi.</li>
+        </ol>
+      </div>
+
+      <form class="fd-form form230" id="form230" novalidate>
+        <fieldset class="fs">
+          <legend>Date personale</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-nume">Nume *</label>
+              <input id="f-nume" name="nume" type="text" required>
+            </div>
+            <div class="field">
+              <label for="f-prenume">Prenume *</label>
+              <input id="f-prenume" name="prenume" type="text" required>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-initiala">Inițiala tatălui</label>
+              <input id="f-initiala" name="initiala" type="text" maxlength="2">
+            </div>
+            <div class="field">
+              <label for="f-cnp">CNP *</label>
+              <input id="f-cnp" name="cnp" type="text" inputmode="numeric" maxlength="13" pattern="[0-9]{13}" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend>Adresă și contact</legend>
+          <div class="field">
+            <label for="f-strada">Stradă, număr, bloc, scară, etaj, ap. *</label>
+            <input id="f-strada" name="strada" type="text" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-oras">Localitate *</label>
+              <input id="f-oras" name="oras" type="text" required>
+            </div>
+            <div class="field">
+              <label for="f-judet">Județ *</label>
+              <input id="f-judet" name="judet" type="text" required>
+            </div>
+            <div class="field">
+              <label for="f-cod">Cod poștal</label>
+              <input id="f-cod" name="cod" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-email230">Email *</label>
+              <input id="f-email230" name="email" type="email" required>
+            </div>
+            <div class="field">
+              <label for="f-tel230">Telefon</label>
+              <input id="f-tel230" name="telefon" type="tel">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend>Opțiune</legend>
+          <label class="check-line">
+            <input type="checkbox" name="doiAni" value="da">
+            <span>Vreau să redirecționez pentru <b>2 ani</b> (formularul rămâne valabil 2 ani consecutivi).</span>
+          </label>
+        </fieldset>
+
+        <label class="consent">
+          <input type="checkbox" name="gdpr" required>
+          <span>Sunt de acord cu prelucrarea datelor mele (inclusiv CNP) exclusiv în scopul completării și depunerii formularului 230, conform <a href="politica-confidentialitate.html" target="_blank">Politicii de confidențialitate</a>. *</span>
+        </label>
+
+        <div class="form230-actions">
+          <button type="button" class="btn btn-solid" id="btn230Download">Generează și descarcă PDF-ul</button>
+          <button type="button" class="btn btn-ghost" id="btn230Send">Trimite-l asociației</button>
+        </div>
+        <p class="donate-note">PDF-ul se generează direct în browser. Trimiterea către asociație folosește serviciul nostru de formulare. <span class="placeholder-tag">PLACEHOLDER_TALLY_230</span></p>
+      </form>
+    </div>
+
+    <!-- ---------- 03: DONAȚIE UNICĂ ---------- -->
+    <div class="donate-panel" id="panel-unica">
+      <div class="panel-head">
+        <h2 class="display sec">Donație unică</h2>
+        <p class="sec-sub">O singură contribuție, acum, prin card. Simplu și securizat.</p>
+      </div>
+
+      <div class="amount-block">
+        <p class="amount-label">Alege suma</p>
+        <div class="amount-grid" data-amount-group="unica">
+          <button type="button" class="amount-btn" data-amount="50">50 lei</button>
+          <button type="button" class="amount-btn is-active" data-amount="150">150 lei</button>
+          <button type="button" class="amount-btn" data-amount="300">300 lei</button>
+          <button type="button" class="amount-btn" data-amount="500">500 lei</button>
+          <div class="amount-custom">
+            <input type="number" min="5" placeholder="altă sumă" data-amount-custom="unica" aria-label="Altă sumă">
+            <span>lei</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-solid btn-block btn-donate" data-donate-type="unica">Donează <span data-amount-display="unica">150</span> lei</button>
+      <p class="donate-note">Vei fi redirecționat către pagina securizată de plată. <span class="placeholder-tag">PLACEHOLDER_PROCESATOR_PLATI</span></p>
+    </div>
+
+    <!-- ---------- 04: DONAȚIE RECURENTĂ ---------- -->
+    <div class="donate-panel" id="panel-recurenta">
+      <div class="panel-head">
+        <h2 class="display sec">Donație lunară</h2>
+        <p class="sec-sub">Un sprijin constant face cea mai mare diferență. Ne ajută să planificăm pe termen lung. Te poți dezabona oricând.</p>
+      </div>
+
+      <div class="amount-block">
+        <p class="amount-label">Alege suma lunară</p>
+        <div class="amount-grid" data-amount-group="recurenta">
+          <button type="button" class="amount-btn" data-amount="20">20 lei/lună</button>
+          <button type="button" class="amount-btn is-active" data-amount="50">50 lei/lună</button>
+          <button type="button" class="amount-btn" data-amount="100">100 lei/lună</button>
+          <button type="button" class="amount-btn" data-amount="200">200 lei/lună</button>
+          <div class="amount-custom">
+            <input type="number" min="5" placeholder="altă sumă" data-amount-custom="recurenta" aria-label="Altă sumă lunară">
+            <span>lei/lună</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-solid btn-block btn-donate" data-donate-type="recurenta">Susține cu <span data-amount-display="recurenta">50</span> lei/lună</button>
+      <p class="donate-note">Abonamentul se gestionează securizat și poate fi anulat oricând. <span class="placeholder-tag">PLACEHOLDER_PROCESATOR_PLATI</span></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ TRANSPARENȚĂ ============ -->
+<section class="transp" id="transparenta">
+  <div class="wrap">
+    <p class="eyebrow reveal">Promisiunea noastră</p>
+    <h2 class="display sec reveal">Vezi unde ajunge fiecare leu</h2>
+    <p class="note reveal">Fiecare microproiect are pagina lui publică: buget detaliat, implementare, fotografii și raport final. Donezi cu încredere, pentru că vezi rezultatul.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img class="logo-light" src="assets/logo-mono-blue.png" alt="">
+      <img class="logo-dark" src="assets/logo-mono-white.png" alt="">
+      <p>© 2026 Asociația Front Door / Ușa din Față<br>frontdoor.ro</p>
+    </div>
+    <nav class="foot-links">
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
+      <a href="despre.html">Cine suntem</a>
+      <a href="politica-confidentialitate.html">Confidențialitate</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/form230.js" defer></script>
+<script src="js/donate.js" defer></script>
+
+</body>
+</html>
