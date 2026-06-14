@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Front Door / Ușa din Față — În curând</title>
+<meta name="description" content="Asociația Front Door / Ușa din Față — artă, cultură și comunitate. Site-ul nostru e în curând disponibil.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Front Door / Ușa din Față — În curând">
+<meta property="og:description" content="Creăm acces la artă, cultură și comunitate. Deschidem ușa din față în curând.">
+<meta property="og:type" content="website">
+
+<!-- Fonturi -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* =================================================================
+   Front Door / Ușa din Față — pagina „în curând"
+   Standalone, fără dependențe. Aceleași variabile de brand ca site-ul.
+   ================================================================= */
+
+:root{
+  --blue:#1D5381;
+  --blue-deep:#123955;
+  --blue-soft:#E3EDF5;
+  --ink:#0B0E12;
+  --bg:#FFFFFF;
+  --surface:#F2F5F8;
+  --text:#10141A;
+  --muted:#56606C;
+  --line:rgba(16,20,26,.14);
+  --accent-text:#1D5381;
+  --slash:#0B0E12;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0B0E12;
+    --surface:#12161C;
+    --text:#F2F5F8;
+    --muted:#9AA6B2;
+    --line:rgba(242,245,248,.14);
+    --blue-soft:#143049;
+    --accent-text:#8FB6D6;
+    --slash:#F2F5F8;
+  }
+  .logo-light{display:none}
+  .logo-dark{display:block}
+}
+@media (prefers-color-scheme: light){
+  .logo-dark{display:none}
+  .logo-light{display:block}
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+
+/* ---------- SLASH-UL DE FUNDAL (semnătura) ---------- */
+.bg-slash{
+  position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+}
+.bg-slash::before{
+  content:"";position:absolute;
+  top:-20%;left:50%;width:140%;height:200px;
+  background:var(--slash);opacity:.05;
+  transform:translateX(-50%) rotate(-22deg);
+}
+.bg-slash::after{
+  content:"";position:absolute;
+  bottom:-15%;left:50%;width:140%;height:140px;
+  background:var(--blue);opacity:.07;
+  transform:translateX(-50%) rotate(-22deg);
+}
+
+/* ---------- LAYOUT ---------- */
+.shell{
+  position:relative;z-index:1;
+  flex:1;display:flex;flex-direction:column;
+  max-width:760px;width:100%;margin:0 auto;padding:40px 24px;
+}
+
+/* ---------- HEADER ---------- */
+.top{display:flex;align-items:center;gap:14px}
+.top img{height:46px;width:auto}
+.top .brand-name{
+  font-family:'Archivo Black',sans-serif;font-size:15px;letter-spacing:.06em;line-height:1;
+}
+.top .brand-name small{
+  display:block;font-family:'Space Grotesk',sans-serif;font-weight:400;
+  font-size:11px;letter-spacing:.14em;color:var(--muted);margin-top:3px;
+}
+
+/* ---------- CENTRU ---------- */
+.center{
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:56px 0;
+}
+.eyebrow{
+  font-family:'Archivo Black',sans-serif;
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent-text);
+  display:flex;align-items:center;gap:12px;margin-bottom:28px;
+}
+.eyebrow::after{content:"";flex:0 0 44px;height:3px;background:var(--blue);transform:skewX(-45deg)}
+
+h1{
+  font-family:'Archivo Black',sans-serif;
+  text-transform:uppercase;letter-spacing:.01em;line-height:1.04;
+  font-size:clamp(40px,8vw,76px);
+  margin-bottom:24px;
+}
+h1 em{font-style:normal;color:var(--accent-text)}
+
+.lead{
+  font-size:clamp(17px,2.4vw,20px);color:var(--muted);
+  max-width:540px;margin-bottom:44px;
+}
+
+/* ---------- NOTIFICARE EMAIL ---------- */
+.notify-label{
+  font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent-text);margin-bottom:14px;
+}
+.notify{display:flex;gap:10px;flex-wrap:wrap;max-width:480px}
+.notify input{
+  flex:1;min-width:220px;padding:15px 18px;font-size:15px;font-family:inherit;
+  color:var(--text);background:var(--surface);
+  border:1.5px solid var(--line);transition:border-color .16s ease, background .16s ease;
+}
+.notify input:focus{outline:none;border-color:var(--blue);background:var(--bg)}
+.notify button{
+  padding:15px 30px;font-weight:700;font-size:15px;cursor:pointer;
+  background:var(--blue);color:#fff;border:2px solid var(--blue);
+  transition:transform .16s ease, background .18s ease, border-color .18s ease;
+}
+.notify button:hover{transform:translateY(-2px);background:var(--blue-deep);border-color:var(--blue-deep)}
+.notify-hint{font-size:13px;color:var(--muted);margin-top:12px;max-width:480px}
+
+/* mesaj după trimitere */
+.notify-done{
+  display:none;margin-top:4px;padding:15px 18px;max-width:480px;
+  font-size:15px;background:var(--blue-soft);color:var(--accent-text);
+  border:1px solid var(--line);
+}
+.notify-done.show{display:block}
+
+/* ---------- SUBSOL ---------- */
+.bottom{
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  flex-wrap:wrap;padding-top:32px;border-top:1px solid var(--line);
+}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.social-pill{
+  display:inline-block;padding:9px 18px;font-size:14px;font-weight:500;
+  border:1.5px solid var(--blue);color:var(--accent-text);
+  transition:background .18s ease, color .18s ease, transform .16s ease;
+}
+.social-pill:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
+.copyright{font-size:13px;color:var(--muted)}
+
+@media(max-width:560px){
+  .bottom{flex-direction:column;align-items:flex-start}
+}
+
+/* ---------- ACCESIBILITATE ---------- */
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:3px solid var(--accent-text);outline-offset:2px;
+}
+
+/* ---------- ANIMAȚIE LA ÎNCĂRCARE ---------- */
+.fade{opacity:0;transform:translateY(18px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+.fade.d1{animation-delay:.05s}
+.fade.d2{animation-delay:.15s}
+.fade.d3{animation-delay:.25s}
+.fade.d4{animation-delay:.35s}
+.fade.d5{animation-delay:.45s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important}
+  .fade{opacity:1;transform:none}
+  .notify button:hover,.social-pill:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-slash" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <!-- ============ HEADER ============ -->
+  <header class="top fade d1">
+    <img class="logo-light" src="assets/logo-mono-blue.png" alt="Front Door">
+    <img class="logo-dark" src="assets/logo-mono-white.png" alt="Front Door">
+    <span class="brand-name">FRONT DOOR<small>UȘA DIN FAȚĂ</small></span>
+  </header>
+
+  <!-- ============ CENTRU ============ -->
+  <main class="center">
+    <p class="eyebrow fade d2">În curând</p>
+    <h1 class="fade d2">Deschidem<br>ușa din față.</h1>
+    <p class="lead fade d3">
+      Construim o asociație culturală și o comunitate de într-ajutorare —
+      acces la artă, cultură și sprijin pentru cei care altfel nu l-ar avea.
+      Site-ul complet vine în curând.
+    </p>
+
+    <!-- ============ NOTIFICARE EMAIL ============ -->
+    <div class="fade d4">
+      <p class="notify-label">Anunță-mă la lansare</p>
+      <!--
+        TODO: înlocuiește action cu endpoint-ul real (Tally / Mailchimp / Brevo).
+        Până atunci, formularul afișează un mesaj de confirmare local, fără trimitere.
+      -->
+      <form class="notify" id="notifyForm" action="PLACEHOLDER_NEWSLETTER_ENDPOINT" method="post" novalidate>
+        <input type="email" name="email" id="notifyEmail" placeholder="adresa ta de email" aria-label="Adresa ta de email" required>
+        <button type="submit">Anunță-mă</button>
+      </form>
+      <p class="notify-hint">Îți scriem o singură dată, când deschidem. Fără spam, te dezabonezi oricând.</p>
+      <p class="notify-done" id="notifyDone">Gata — te anunțăm de îndată ce deschidem ușa. Mulțumim!</p>
+    </div>
+  </main>
+
+  <!-- ============ SUBSOL ============ -->
+  <footer class="bottom fade d5">
+    <nav class="socials" aria-label="Rețele sociale">
+      <a class="social-pill" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a class="social-pill" href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+      <a class="social-pill" href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <p class="copyright">© 2026 Asociația Front Door / Ușa din Față</p>
+  </footer>
+
+</div>
+
+<script>
+/* Dacă endpoint-ul nu e conectat încă, nu trimite nicăieri —
+   doar confirmă local, ca vizitatorul să aibă feedback. */
+(function () {
+  var form = document.getElementById('notifyForm');
+  var done = document.getElementById('notifyDone');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    var email = document.getElementById('notifyEmail');
+    var action = form.getAttribute('action') || '';
+
+    // validare simplă de email
+    if (!email.value || !/.+@.+\..+/.test(email.value)) {
+      email.focus();
+      e.preventDefault();
+      return;
+    }
+
+    // endpoint neconectat → previne trimiterea, arată confirmarea locală
+    if (action.indexOf('PLACEHOLDER') === 0 || action === '') {
+      e.preventDefault();
+      form.style.display = 'none';
+      done.classList.add('show');
+      done.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    // dacă action e un endpoint real, lăsăm trimiterea să decurgă normal
+  });
+})();
+</script>
+
+</body>
+</html>
